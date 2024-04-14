@@ -4,15 +4,19 @@ import GlobalStyle from './theme/globalStyles'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme/theme'
 import './assets/style/index.css'
+import { ChakraProvider } from '@chakra-ui/react'
+import extendTheme from './theme/index'
 
 function App() {
     return (
         <>
-            <ThemeProvider theme={theme}>
-                <Reset />
-                <GlobalStyle />
-                <Routers />
-            </ThemeProvider>
+            <ChakraProvider theme={extendTheme}>
+                <ThemeProvider theme={extendTheme}>
+                    <Reset />
+                    <GlobalStyle />
+                    <Routers />
+                </ThemeProvider>
+            </ChakraProvider>
         </>
     )
 }
